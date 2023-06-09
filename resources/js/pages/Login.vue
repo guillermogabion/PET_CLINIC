@@ -1,46 +1,54 @@
 <template>
   <v-app>
     <div>
-      <v-sheet style="max-height: 101.2vh;" fluid>
-        <div class="text-center login">
-          <v-card width="500" class="mx-auto" elevation="3" color="white">
-            <v-card>
-              <div style="padding-top: 4%">
-                <v-img contain :src="logocard" max-height="30%" width="50%" class="mx-auto" />
-              </div>
-
-              <v-col>
-                <v-text-field v-model="email" dense filled label="Email"></v-text-field>
-
-                <v-text-field
-                  v-model="password"
-                  dense
-                  filled
-                  :type="isPasswordVisible ? 'text' : 'password'"
-                  label="Password"
-                  placeholder="············"
-                  :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
-                  @click:append="isPasswordVisible = !isPasswordVisible"
-                ></v-text-field>
-
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn color="primary" class="mb-2 px-7" @click="Login()">Login</v-btn>
-                  <v-spacer></v-spacer>
-                </v-card-actions>
-                <fail-snack-bar v-model="show" />
-              </v-col>
-            </v-card>
-          </v-card>
+      <div class="row pt-3" >
+        <div class="col" style="padding-left: 20px">
+           <v-img contain :src="logo" height="120%" width="100%" class="mx-auto" style="margin-left: 1000px" />
         </div>
-      </v-sheet>
+        <div class="col">
+          <v-sheet style="max-height: 101.2vh;" fluid >
+            <div class="text-center login">
+              <v-card width="500" class="mx-auto mt-4" elevation="0" color="white">
+                <v-card elevation="0">
+                  <div style="padding-top: 15%">
+                    <v-img contain :src="logocard" max-height="50%" width="50%" class="mx-auto" />
+                  </div>
+
+                  <v-col>
+                    <v-text-field v-model="email" dense filled label="Username"></v-text-field>
+
+                    <v-text-field
+                      v-model="password"
+                      dense
+                      filled
+                      :type="isPasswordVisible ? 'text' : 'password'"
+                      label="Password"
+                      placeholder="············"
+                      :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
+                      @click:append="isPasswordVisible = !isPasswordVisible"
+                    ></v-text-field>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="primary" class="mb-2 px-7" @click="Login()">Login</v-btn>
+                      <v-spacer></v-spacer>
+                    </v-card-actions>
+                    <fail-snack-bar v-model="show" />
+                  </v-col>
+                </v-card>
+              </v-card>
+            </div>
+          </v-sheet>
+      </div>
+      </div>
+      
     </div>
   </v-app>
 </template>
 
 <script>
-import logo from "../assets/logo.jpg";
-import logocard from "../assets/logo.jpg";
+import logo from "../assets/back.png";
+import logocard from "../assets/logo_pet.png";
 import { mdiEyeOutline, mdiEyeOffOutline } from "@mdi/js";
 import { login } from "../repositories/user.api";
 import FailSnackBar from "../components/snackbar.vue";

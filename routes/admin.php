@@ -6,12 +6,16 @@ use App\Http\Controllers\ParticipantController;
 use App\Http\Controllers\RecordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ItemController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PetController;
+use App\Http\Controllers\ScheduleController;
 
 
 Route::group(['prefix' => '/v1'], function () {
     Route::post('login', [UserController::class, 'login'])->name('login');
     // Route::get('export', 'UserController@export');
+    Route::get('cert/{id}', [PetController::class, 'printCert']);
+
 
 
 });
@@ -20,21 +24,24 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:admin-api']], function (
     Route::get('self', 'UserController@self');
     Route::get('user', 'UserController@index');
  
+    Route::post('storeClient', [PatientController::class, 'storeClient']);
+    Route::put('editClient/{id}', [PatientController::class, 'editClient']);
+    Route::get('getClient', [PatientController::class, 'getAll']);
+    Route::get('getPet', [PetController::class, 'getAllPet']);
+    Route::post('insert-pet', [PetController::class, 'store']);
+    Route::delete('delete-pet/{id}', [PetController::class, 'deletePet']);
+    Route::put('edit-pet/{id}', [PetController::class, 'editPet']);
 
-    Route::post('add-student', 'UserController@addRegister');
-    Route::get('get-student', 'UserController@displayStudent');
-    Route::get('get-IT', 'UserController@displayIT');
-    Route::get('get-CRIM', 'UserController@displayCrim');
-    Route::get('get-HM', 'UserController@displayHM');
-    Route::get('get-ED', 'UserController@displayED');
-    Route::get('get-CS', 'UserController@displayCS');
-    Route::post('edit-student/{id}', 'UserController@editStudent');
+    Route::post('add-record', [RecordController::class, 'store']);
 
-    Route::post('insert-subjects', 'RecordController@store');
+    Route::get('get-record', [RecordController::class, 'getRecord']);
 
 
-    Route::get('display-subjects', 'UserController@displaySubjects');
-    Route::post('export', 'UserController@export');
-    Route::post('exportbyprogram', 'UserController@exportByProgram');
-    Route::post('exportList', 'UserController@exportList');
+    Route::post('add-schedule', 'RecordController@storeSched');
+    Route::get('get-schedule', [ScheduleController::class, 'get']);
+    Route::put('edit-schedule/{id}', [ScheduleController::class, 'edit']);
+
+    Route::resource('schedule', 'ScheduleController');
+
+
 });

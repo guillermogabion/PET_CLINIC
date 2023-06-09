@@ -9,7 +9,7 @@
    
     <v-list-item class="px-2 pt-2">
         <v-img
-        color="primary"
+        color="#00bf63"
         size="40"
         :src="logocard"
         >
@@ -45,16 +45,16 @@
    </v-navigation-drawer>
 </template>
 <script>
-import logocard from '../../assets/logo.jpg'
+import logocard from '../../assets/logo_pet.png'
 export default {
     data : () => ({
         logocard,
         items : [
             // {title : 'Dashboard', icon: 'mdi-view-dashboard', route: '/'},
             // {title : 'Items', icon: 'mdi-view-dashboard', route: '/allitems'},
-            {title : 'Student Record', icon: 'mdi mdi-account-group', route: '/'},
-            {title : 'Students Subjects', icon: 'mdi mdi-account-group', route: '/student-subjects'},
-            // {title : 'Participants', icon: 'mdi mdi-account-group', route: '/attendee'},
+            {title : 'Schedules', icon: 'mdi mdi-calendar-check', route: '/'},
+            {title : 'Pet Owner Records', icon: 'mdi mdi-account-card-details', route: '/patient'},
+            {title : 'Pet Records', icon: 'mdi mdi-cat', route: '/pet'},
             // {title : 'Enrollee', icon: 'mdi mdi-account-group', route: '/enrollee'},
             // {title : 'Settings', icon: 'mdi-view-dashboard', route: '/setting'}, 
         //     {
@@ -148,7 +148,7 @@ export default {
 }
 
 .v-list-item--active {
-    background-color: #2d80fd;
+    background-color: #00bf63;
     color: #f4f4f4 !important;
     margin: 4%;
     padding-bottom: 2%;
@@ -157,7 +157,7 @@ export default {
 
 
 .hover:hover {
-    background-color: #1f34f7!important;
+    background-color: #00bf63!important;
     color: #040404 !important;
    
     margin: 4%;

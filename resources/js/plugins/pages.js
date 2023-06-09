@@ -25,6 +25,11 @@ import StudentsSubj from '../pages/Admin/StudentSubj'
 
 import Students from '../pages/Admin/Student'
 
+import Patient from '../pages/Admin/Patient.vue'
+import Pet from '../pages/Admin/Pet.vue'
+
+import Calendar from '../pages/Admin/Calendar.vue'
+
 
 export default [{
     path: '/',
@@ -60,22 +65,42 @@ export default [{
         // employee 
         {
             path: '/',
-            name: 'student',
-            component: Students,
+            name: 'calendar',
+            component: Calendar,
             meta: { authOnly: true },
             children : [
                
             ]
         },
         {
-            path: '/students',
-            name: 'student',
-            component: Students,
+            path: '/calendar',
+            name: 'calendar',
+            component: Calendar,
             meta: { authOnly: true },
             children : [
                
             ]
         },
+        {
+            path: '/patient',
+            name: 'patient',
+            component: Patient,
+            meta: { authOnly: true },
+            children : [
+               
+            ]
+        },
+        {
+            path: '/pet',
+            name: 'pet',
+            component: Pet,
+            meta: { authOnly: true },
+            children : [
+               
+            ]
+        },
+
+
         {
             path: '/student-subjects',
             name: 'student-subjects',
