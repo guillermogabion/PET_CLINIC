@@ -46,4 +46,10 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:admin-api']], function (
     Route::post('sendSms', 'RecordController@sendSms');
 
 
+    Route::get('getallUser', 'UserController@getAll');
+    Route::post('addUser', 'UserController@addRegister');
+    Route::put('editUser/{id}', 'UserController@editRegister');
+
+    Route::put('status/{id}','UserController@status');
+
 });

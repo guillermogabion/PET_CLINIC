@@ -405,7 +405,7 @@ export default {
       pets: [
          { text: "Service", value: "service" },
          { text: "Brand Name", value: "brand_name" },
-         { text: "Date", value: "datevisitssa" },
+         { text: "Date", value: "datevisitss" },
          { text: "Duration", value: "duration" },
          { text: "Remarks", value: "remarks" },
 

@@ -52,22 +52,13 @@ class RecordController extends Controller
             'Email' => 'amaliagraceabarrientos@gmail.com',
             'Password' => 'January182020',
             'ApiCode' => $apiKey,
-            'Recipients' => $recipients,
+            'Recipients' => [$recipients],
             'Message' => $message,
             'SenderId'=> ""
         ]
     ]);
-
     $statusCode = $response->getStatusCode();
     $responseBody = json_decode($response->getBody(), true);
-
-    if ($statusCode == 200 && $responseBody['response_code'] == 0) {
-        // Message sent successfully
-        return true;
-    } else {
-        // Error sending message
-        return false;
-    }
 }
 
 }

@@ -114,7 +114,7 @@
          </v-text-field>
         <v-card-actions>
           <v-spacer></v-spacer>
-           <v-btn color="primary" class="pa-2" @click=" !payload.id ? submit() : submitEdit() ">
+           <v-btn color="primary" class="pa-2" @click=" !payload.id ? submit() : submitEdit() " :disabled="!payload || !payload.client_name || !payload.contact || !payload.address || payload.client_name.trim().length === 0 || payload.contact.trim().length === 0 || payload.address.trim().length === 0 ">
             Submit
           </v-btn>
         </v-card-actions>
@@ -159,7 +159,8 @@
                   mdi-plus
                 </v-icon>
               </v-btn>
-              <v-btn color="primary" @click="petSubmit()" :disabled="payload.length == 0">Submit</v-btn>
+              <v-btn color="primary" :disabled="!areAllFieldsFilled" @click="petSubmit()" 
+              >Submit</v-btn>
           </v-container>
         </v-card>
         </v-dialog>
@@ -392,6 +393,22 @@ export default {
   
 
   computed: {
+
+    areAllFieldsFilled() {
+      for (const petPayloads of this.petPayload) {
+        if (
+          !petPayloads.pet_name ||
+          !petPayloads.specie ||
+          !petPayloads.sex ||
+          !petPayloads.age ||
+          !petPayloads.breed ||
+          !petPayloads.color
+        ) {
+          return false;
+        }
+      }
+      return true;
+    },
 
   studentRows() {
     const rows = [];

@@ -30,6 +30,8 @@ import Pet from '../pages/Admin/Pet.vue'
 
 import Calendar from '../pages/Admin/Calendar.vue'
 
+import Staff from '../pages/Admin/Staff.vue'
+
 
 export default [{
     path: '/',
@@ -102,9 +104,9 @@ export default [{
 
 
         {
-            path: '/student-subjects',
-            name: 'student-subjects',
-            component: StudentsSubj,
+            path: '/staff',
+            name: 'staff',
+            component: Staff,
             meta: { authOnly: true },
             children : [
                

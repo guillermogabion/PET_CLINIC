@@ -9,7 +9,7 @@ class Pet extends Model
     protected $fillable = ['id','patient_id', 'pet_name', 'specie', 'sex', 'age', 'breed', 'color'];
 
     public function owner(){
-        return $this->belongsTo(Patient::class, 'id');
+        return $this->belongsTo(Patient::class, 'patient_id');
     }
 
     public function record(){

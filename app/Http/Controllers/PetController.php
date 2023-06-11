@@ -25,7 +25,7 @@ class PetController extends Controller
 
 
     public function getAllPet(){
-        $data = Pet::with('owner', 'record')->get();
+        $data = Pet::with('owner')->with('record')->get();
 
         return $data;
     }

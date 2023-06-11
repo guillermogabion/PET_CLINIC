@@ -15,7 +15,7 @@ class ScheduleController extends Controller
        $schedule->contact = $request->contact;
        $schedule->description = $request->description;
        $schedule->start = $request->start;
-       $schedule->end = $request->end;
+       $schedule->end = $request->start;
 
        $schedule->save;
 

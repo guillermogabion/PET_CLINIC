@@ -16,4 +16,6 @@ class Schedule extends Model
         'contact',
         'description',
     ];
+
+  
 }

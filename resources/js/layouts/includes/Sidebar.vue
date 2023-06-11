@@ -55,6 +55,7 @@ export default {
             {title : 'Schedules', icon: 'mdi mdi-calendar-check', route: '/'},
             {title : 'Pet Owner Records', icon: 'mdi mdi-account-card-details', route: '/patient'},
             {title : 'Pet Records', icon: 'mdi mdi-cat', route: '/pet'},
+            {title : 'Staff', icon: 'mdi mdi-account-multiple', route: '/staff'},
             // {title : 'Enrollee', icon: 'mdi mdi-account-group', route: '/enrollee'},
             // {title : 'Settings', icon: 'mdi-view-dashboard', route: '/setting'}, 
         //     {

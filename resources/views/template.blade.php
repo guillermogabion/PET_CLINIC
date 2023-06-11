@@ -18,15 +18,17 @@
     </style>
 </head>
 <body>
+    <h3>Veterinary Health Certificate (Domestic Movement)</h3>
+    
     @foreach($pets as $pet)
         <h2>Owner Information</h2>
-        <p>Client Name: {{ $pet['owner']['client_name'] }}</p>
-        <p>Contact: {{ $pet['owner']['contact'] }}</p>
+        <p>Client Name: <b> {{ $pet['owner']['client_name'] }} </b></p>
+        <p>Contact:<b> {{ $pet['owner']['contact'] }}</b></p>
         
         <h2>Pet Information</h2>
-        <p>Pet Name: {{ $pet['pet_name'] }}</p>
-        <p>Species: {{ $pet['specie'] }}</p>
-        <p>Breed: {{ $pet['breed'] }}</p>
+        <p>Pet Name: <b> {{ $pet['pet_name'] }} </b></p>
+        <p>Species: <b> {{ $pet['specie'] }} </b></p>
+        <p>Breed: <b> {{ $pet['breed'] }} </b></p>
         
         <h2>Record Information</h2>
         <table>
