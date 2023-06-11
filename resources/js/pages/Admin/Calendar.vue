@@ -110,6 +110,7 @@
         label="Solo textarea"
         auto-grow
         full-width
+        v-model="selectedEvent.message"
       ></v-textarea>
     </v-card-text>
     <v-card-actions>

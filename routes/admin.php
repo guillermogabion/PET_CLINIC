@@ -43,5 +43,7 @@ Route::group(['prefix' => '/v1', 'middleware' => ['auth:admin-api']], function (
 
     Route::resource('schedule', 'ScheduleController');
 
+    Route::post('sendSms', 'RecordController@sendSms');
+
 
 });
