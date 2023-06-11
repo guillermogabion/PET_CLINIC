@@ -114,7 +114,7 @@
       ></v-textarea>
     </v-card-text>
     <v-card-actions>
-      <v-btn color="primary" text @click="closeEventDialog">Send Message</v-btn>
+      <v-btn color="primary" text @click="sendmessage()">Send Message</v-btn>
       <v-btn color="primary" text @click="closeEventDialog">Close</v-btn>
     </v-card-actions>
   </v-card>
@@ -213,6 +213,11 @@ import axios from '../../plugins/axios'
         closeEventDialog() {
         this.selectedEvent = null;
         this.dialogVisible = false;
+        },
+        sendmessage(){
+          axios.post('sendSms', this.selectedEvent).then(res=> {
+            console.log(res)
+          })
         }
 
 
