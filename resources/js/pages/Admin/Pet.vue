@@ -660,7 +660,8 @@ export default {
 
     printCertAndRedirect() {
         this.test()
-        window.location.href = 'http://127.0.0.1:8000/admin/v1/cert/'+`${this.payload.id}`;
+        const hostUrl = window.location.protocol + '//' + window.location.host;
+        window.location.href = `${hostUrl}` +`${this.payload.id}`;
     }
 
 
