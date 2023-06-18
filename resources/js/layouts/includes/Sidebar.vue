@@ -107,7 +107,7 @@ export default {
         },
 
         itemChecker(item){
-            let user_accepts = ['Dashboard', 'Participants']
+            let user_accepts = ['Schedules', 'Pet Owner Records', 'Pet Records']
             let other_accepts = ['Events', "Settings"]
 
             if(this.$is_admin()){

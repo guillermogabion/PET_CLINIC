@@ -1,5 +1,6 @@
 <template>
   <div>
+   
     <div>
         <v-data-table 
         :headers="headers" 
@@ -10,7 +11,10 @@
                 <v-toolbar
                 flat
                 >
-                    <v-toolbar-title>Pet Record</v-toolbar-title>
+                    <v-toolbar-title>Pet Record
+
+                    </v-toolbar-title>
+                  
                  <v-spacer></v-spacer>
                      <v-text-field
                       v-model="search"
@@ -47,11 +51,15 @@
                 mdi-delete
               </v-icon>
                <v-icon
+               
                 small
                 @click="viewRecord(item)"
+                 v-if="$is_admin()" 
               >
                 mdi-eye
               </v-icon>
+
+              
             </template>
            
         </v-data-table>
@@ -91,6 +99,7 @@
       width="400px"
     > 
       <v-card>
+          
         <v-card-title>{{ formTitle }}</v-card-title>
         <div class="row">
             <div class="col-lg-6">

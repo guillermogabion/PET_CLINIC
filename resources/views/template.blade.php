@@ -56,5 +56,7 @@
             </tbody>
         </table>
     @endforeach
+
+    <p style="text-align: left"> Approved By :</p>
 </body>
 </html>
