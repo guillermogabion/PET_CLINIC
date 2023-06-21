@@ -320,10 +320,11 @@
             >
                 <div class="row">
                     <div class="col-lg-6">
-                      <v-text-field
+                      <v-select
                         v-model="recordpayload.service"
                         label="Service"
-                      ></v-text-field>  
+                        :items="select"
+                      ></v-select>  
                       <v-text-field
                         type="date"
                         v-model="recordpayload.datevisitss"
@@ -425,7 +426,10 @@ export default {
         datevisitss: '',
         duration: '',
         remarks: '',
-     }
+     },
+     select: [
+        'Vaccination', 'Deworming', 'Check-up', 'Treatment'
+     ]
     };
   },
 
@@ -660,8 +664,8 @@ export default {
 
     printCertAndRedirect() {
         this.test()
-        const hostUrl = window.location.protocol + '//' + window.location.host;
-        window.location.href = `${hostUrl}` +`${this.payload.id}`;
+       const hostUrl = window.location.protocol + '//' + window.location.host;
+    window.location.href = `${hostUrl}/admin/v1/cert/${this.payload.id}`;
     }
 
 

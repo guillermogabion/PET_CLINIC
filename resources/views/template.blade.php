@@ -48,15 +48,15 @@
                         <td>{{ $record['id'] }}</td>
                         <td>{{ $record['service'] }}</td>
                         <td>{{ $record['brand_name'] }}</td>
-                        <td>{{ $record['datevisitss'] }}</td>
+                        <!-- <td>{{ $record['datevisitss'] }}</td>
                         <td>{{ $record['duration'] }}</td>
-                        <td>{{ $record['remarks'] }}</td>
+                        <td>{{ $record['remarks'] }}</td> -->
                     </tr>
                 @endforeach
             </tbody>
         </table>
     @endforeach
 
-    <p style="text-align: left"> Approved By :</p>
+    <!-- <p style="text-align: left"> Approved By :</p> -->
 </body>
 </html>

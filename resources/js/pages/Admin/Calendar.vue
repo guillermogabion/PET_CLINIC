@@ -61,7 +61,7 @@
               
                 <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary" class="pa-2" @click="addEvent()">
+                <v-btn color="primary" class="pa-2" @click="addEvent()" :disabled="!areAllFieldsFilled">
                     Submit
                 </v-btn>
                 </v-card-actions>
@@ -74,8 +74,21 @@
     <v-col>
       <v-sheet height="400">
         <div class="custom-calendar">
+          <v-btn icon @click="previousMonth">
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+        
+       <v-btn icon @click="nextMonth">
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+      <v-toolbar style="margin-bottom: 15px">
+         <v-toolbar-title v-if="$refs.calendar">
+            {{ $refs.calendar.title }}
+          </v-toolbar-title>
+      </v-toolbar>
           <v-calendar
-          ref="calendar"
+           ref="calendar"
+          v-model="selectedDate"
           :now="today"
           :value="today"
           :events="events"
@@ -91,6 +104,7 @@
               </div>
             </template>
           </v-calendar>
+           
         </div>
         
       </v-sheet>
@@ -132,6 +146,7 @@
 import axios from '../../plugins/axios'
   export default {
     data: () => ({
+       selectedDate: new Date(),
         type: 'month',
         typeToLabel: {
           month: 'Month',
@@ -167,6 +182,7 @@ import axios from '../../plugins/axios'
     mounted () {
       this.fetchEvents()
     },
+     
     methods: {
       viewDay ({ date }) {
         this.focus = date
@@ -241,39 +257,21 @@ import axios from '../../plugins/axios'
 
             
           })
-        }
-
-
-      
-
-        
-    //   updateRange ({ start, end }) {
-    //     const events = []
-
-    //     const min = new Date(`${start.date}T00:00:00`)
-    //     const max = new Date(`${end.date}T23:59:59`)
-    //     const days = (max.getTime() - min.getTime()) / 86400000
-    //     const eventCount = this.rnd(days, days + 20)
-
-    //     for (let i = 0; i < eventCount; i++) {
-    //       const allDay = this.rnd(0, 3) === 0
-    //       const firstTimestamp = this.rnd(min.getTime(), max.getTime())
-    //       const first = new Date(firstTimestamp - (firstTimestamp % 900000))
-    //       const secondTimestamp = this.rnd(2, allDay ? 288 : 8) * 900000
-    //       const second = new Date(first.getTime() + secondTimestamp)
-
-    //       events.push({
-    //         name: this.names[this.rnd(0, this.names.length - 1)],
-    //         start: first,
-    //         end: second,
-    //         color: this.colors[this.rnd(0, this.colors.length - 1)],
-    //         timed: !allDay,
-    //       })
-    //     }
-
-    //     this.events = events
-    //   },
+        },
+    previousMonth() {
+      this.selectedDate = new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() - 1, 1);
     },
+
+    nextMonth() {
+      this.selectedDate = new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() + 1, 1);
+    },
+    },
+    computed: {
+      areAllFieldsFilled() {
+        return this.payload.name && this.payload.contact;
+      }
+    },
+   
   }
 </script>
 
